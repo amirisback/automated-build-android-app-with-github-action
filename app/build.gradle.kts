@@ -25,19 +25,10 @@ android {
             // You need to specify either an absolute path or include the
             // keystore file in the same directory as the build.gradle file.
             // [PROJECT FOLDER NAME/app/[COPY YOUT KEY STORE] .jks in here
-
-            val tmpFilePath = System.getProperty("user.home") + "/work/_temp/keystore/"
-            val allFilesFromDir = File(tmpFilePath).listFiles()
-
-            if (allFilesFromDir != null) {
-                val keystoreFile = allFilesFromDir.first()
-                keystoreFile.renameTo(file("keystore/${ProjectSetting.KEY_PATH}"))
-            }
-
-            storeFile = file("keystore/${ProjectSetting.KEY_PATH}")
-            storePassword = System.getenv("SIGNING_STORE_PASSWORD")
-            keyAlias = System.getenv("SIGNING_KEY_ALIAS")
-            keyPassword = System.getenv("SIGNING_KEY_PASSWORD")
+            storeFile = file(ProjectSetting.KEY_PATH)
+            storePassword = ProjectSetting.KEY_STORE_PASSWORD
+            keyAlias = ProjectSetting.KEY_ALIAS
+            keyPassword = ProjectSetting.KEY_ALIAS_PASSWORD
         }
     }
 
