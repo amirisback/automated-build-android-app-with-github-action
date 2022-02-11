@@ -1,0 +1,16 @@
+name: 'automated-build-android-app-with-github-action'
+description: 'Automated build android app bundle and apk with github action'
+author: 'Muhammad Faisal Amir'
+branding:
+  icon: archive
+  color: green
+inputs:
+  myInput:
+    description: 'Input to use'
+    required: false
+    default: 'world'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.myInput }}
