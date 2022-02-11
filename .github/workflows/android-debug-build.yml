@@ -26,5 +26,11 @@ jobs:
       - name: Run Tests
         run: ./gradlew test
 
-      - name: Build Project
-        run: ./gradlew assemble
+      - name: Build Project Debug
+        run: ./gradlew assembleDebug
+
+      - name: Upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: Build Artifacts Debug
+          path: app/build/outputs/
