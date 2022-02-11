@@ -63,6 +63,7 @@ jobs:
         run: ./gradlew assemble
 
       # Create Bundle AAB Release
+      # [module-name]:bundleRelease
       - name: Build app bundle release (AAB)
         run: ./gradlew app:bundleRelease
 
