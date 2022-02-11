@@ -1,0 +1,42 @@
+name: Android Build
+
+on:
+  # Triggers the workflow on push or pull request events but only for default and protected branches
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Set Up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: Change wrapper permissions
+        run: chmod +x ./gradlew
+
+      - name: Run tests
+        run: ./gradlew test
+
+      # Run Build Project
+      - name: Build project
+        run: ./gradlew build
+
+      # Create APK Debug
+      - name: Build debug project APK
+        run: ./gradlew assembleDebug
+
+      # Upload Artifact Build
+      - name: Upload debug build APK
+        uses: actions/upload-artifact@v2
+        with:
+          name: Build Artifacts Debug
+          path: app/build/outputs/

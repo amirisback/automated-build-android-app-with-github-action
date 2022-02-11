@@ -23,13 +23,23 @@ jobs:
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
 
-      - name: Run Tests
+      - name: Run tests
         run: ./gradlew test
 
-      - name: Build Project Debug
-        run: ./gradlew assembleDebug
+      # Run Build project
+      - name: Build Project
+        run: ./gradlew build
 
-      - name: Upload
+      # Create APK Release
+      - name: Build debug project APK
+        run: ./gradlew assemble
+
+      # Create Bundle AAB Release
+      - name: Build app bundle release AAB
+        run: ./gradlew app:bundleRelease
+
+      # Upload Artifact Build
+      - name: Upload build app bundle release AAB
         uses: actions/upload-artifact@v2
         with:
           name: Build Artifacts Debug

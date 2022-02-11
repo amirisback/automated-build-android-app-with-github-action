@@ -18,6 +18,10 @@ android {
         vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        // Naming APK // AAB
+        setProperty("archivesBaseName", "${ProjectSetting.NAME_APK}(${versionName})")
+
     }
 
     signingConfigs {
