@@ -20,6 +20,27 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        create("release") {
+            // You need to specify either an absolute path or include the
+            // keystore file in the same directory as the build.gradle file.
+            // [PROJECT FOLDER NAME/app/[COPY YOUT KEY STORE] .jks in here
+
+            val tmpFilePath = System.getProperty("user.home") + "/work/_temp/keystore/"
+            val allFilesFromDir = File(tmpFilePath).listFiles()
+
+            if (allFilesFromDir != null) {
+                val keystoreFile = allFilesFromDir.first()
+                keystoreFile.renameTo(file("keystore/${ProjectSetting.KEY_PATH}"))
+            }
+
+            storeFile = file("keystore/${ProjectSetting.KEY_PATH}")
+            storePassword = System.getenv("SIGNING_STORE_PASSWORD")
+            keyAlias = System.getenv("SIGNING_KEY_ALIAS")
+            keyPassword = System.getenv("SIGNING_KEY_PASSWORD")
+        }
+    }
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
@@ -35,6 +56,9 @@ android {
                 "proguard-rules.pro"
             )
 
+            // Generated Signed APK / AAB
+            signingConfig = signingConfigs.getByName("release")
+
         }
     }
 
@@ -43,13 +67,13 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
         kotlinOptions {
-            jvmTarget = JavaVersion.VERSION_1_8.toString()
+            jvmTarget = JavaVersion.VERSION_11.toString()
         }
     }
 }
