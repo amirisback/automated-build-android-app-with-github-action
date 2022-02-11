@@ -46,5 +46,5 @@ jobs:
       - name: Upload debug build APK
         uses: actions/upload-artifact@v2
         with:
-          name: Build Artifacts Debug
+          name: App bundle(s) and APK(s) generated
           path: app/build/outputs/
