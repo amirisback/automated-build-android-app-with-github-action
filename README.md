@@ -8,7 +8,7 @@
 
 ## How To Use Workflows
 
-### Step 1. Upload Yout Project on Github
+### Step 1. Upload Your Project on Github
 - Project must be android studio project using gradle
 
 ### Step 2. Create files github workflows
