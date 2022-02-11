@@ -1,4 +1,4 @@
-name: Android Build Debug
+name: Generate APK / AAB Debug And Release
 
 on:
   # Triggers the workflow on push or pull request events but only for default and protected branches
@@ -33,6 +33,14 @@ jobs:
       # Create APK Debug
       - name: Build debug project APK
         run: ./gradlew assembleDebug
+
+      # Create APK Release
+      - name: Build debug project APK
+        run: ./gradlew assemble
+
+      # Create Bundle AAB Release
+      - name: Build app bundle release AAB
+        run: ./gradlew app:bundleRelease
 
       # Upload Artifact Build
       - name: Upload debug build APK
