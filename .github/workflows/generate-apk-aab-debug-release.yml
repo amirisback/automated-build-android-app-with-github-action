@@ -31,15 +31,15 @@ jobs:
         run: ./gradlew build
 
       # Create APK Debug
-      - name: Build debug project APK
+      - name: Build apk debug project (APK)
         run: ./gradlew assembleDebug
 
       # Create APK Release
-      - name: Build debug project APK
+      - name: Build apk release project (APK)
         run: ./gradlew assemble
 
       # Create Bundle AAB Release
-      - name: Build app bundle release AAB
+      - name: Build app bundle release (AAB)
         run: ./gradlew app:bundleRelease
 
       # Upload Artifact Build
