@@ -63,11 +63,12 @@ jobs:
         run: ./gradlew assemble
 
       # Create Bundle AAB Release
-      # [module-name]:bundleRelease
+      # Noted for main module build [module-name]:bundleRelease
       - name: Build app bundle release (AAB)
         run: ./gradlew app:bundleRelease
 
       # Upload Artifact Build
+      # Noted For Output [module-name]/build/outputs/
       - name: Upload debug build APK
         uses: actions/upload-artifact@v2
         with:
