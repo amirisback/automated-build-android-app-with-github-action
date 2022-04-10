@@ -81,8 +81,6 @@ dependencies {
     implementation("androidx.work:work-runtime-ktx:2.7.1")
     implementation("com.google.android.material:material:1.5.0")
 
-    implementation("com.github.amirisback:frogo-recycler-view:4.0.8")
-
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")

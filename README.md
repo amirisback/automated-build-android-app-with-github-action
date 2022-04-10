@@ -7,8 +7,12 @@
 [![Android CI](https://github.com/amirisback/automated-build-android-app-with-github-action/actions/workflows/generate-apk-aab-debug-release.yml/badge.svg)](https://github.com/amirisback/automated-build-android-app-with-github-action/actions/workflows/generate-apk-aab-debug-release.yml)
 [![Scan with Detekt](https://github.com/amirisback/automated-build-android-app-with-github-action/actions/workflows/detekt-analysis.yml/badge.svg)](https://github.com/amirisback/automated-build-android-app-with-github-action/actions/workflows/detekt-analysis.yml)
 [![pages-build-deployment](https://github.com/amirisback/automated-build-android-app-with-github-action/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/amirisback/automated-build-android-app-with-github-action/actions/workflows/pages/pages-build-deployment)
-- Project Github Action Script
+- Project Github Action Script YAML
 - Using Github Workflows
+- Automated Build AAB (release)
+- Automated Build APK (release and debug)
+- Clear (Articfact naming)
+- Sample Naming : ${githubusername/repositoryname} - APK(s) release generated ${playstore_name}
 - Private Repository Tested (Passed Build App bundle(s) and APK generated successfully)
 - Full Code For Github Action Workflows [Click Here](https://github.com/amirisback/automated-build-android-app-with-github-action/blob/master/.github/workflows/generate-apk-aab-debug-release.yml)
 
@@ -89,26 +93,26 @@ jobs:
         run: ./gradlew assemble
 
       # Create Bundle AAB Release
-      # Noted for main module build [MAIN-APP-MODULE]:bundleRelease
+      # Noted for main module build [main_project_module]:bundleRelease
       - name: Build app bundle release (AAB) Module >> ${{ env.main_project_module }}
         run: ./gradlew ${{ env.main_project_module }}:bundleRelease
 
       # Upload Artifact Build
-      # Noted For Output [MAIN-APP-MODULE]/build/outputs/
+      # Noted For Output [main_project_module]/build/outputs/apk/debug/
       - name: Upload APK Debug ${{ env.playstore_name }}
         uses: actions/upload-artifact@v2
         with:
           name: ${{ github.repository }} | APK(s) debug generated ${{ env.playstore_name }}
           path: ${{ env.main_project_module }}/build/outputs/apk/debug/
 
-      # Noted For Output [MAIN-APP-MODULE]/build/outputs/
+      # Noted For Output [main_project_module]/build/outputs/apk/release/
       - name: Upload APK Release ${{ env.playstore_name }}
         uses: actions/upload-artifact@v2
         with:
           name: ${{ github.repository }} | APK(s) release generated ${{ env.playstore_name }}
           path: ${{ env.main_project_module }}/build/outputs/apk/release/
 
-      # Noted For Output [MAIN-APP-MODULE]/build/outputs/
+      # Noted For Output [main_project_module]/build/outputs/bundle/release/
       - name: Upload AAB (App Bundle) Release ${{ env.playstore_name }}
         uses: actions/upload-artifact@v2
         with:
