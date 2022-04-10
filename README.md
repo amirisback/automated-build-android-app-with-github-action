@@ -12,7 +12,7 @@
 - Automated Build AAB (release)
 - Automated Build APK (release and debug)
 - Clear (Articfact naming)
-- Sample Naming : ${githubusername/repositoryname} - APK(s) release generated ${playstore_name}
+- Sample Naming : ${date_today} - ${repository_name} - ${playstore_name} - APK(s) release generated
 - Private Repository Tested (Passed Build App bundle(s) and APK generated successfully)
 - Full Code For Github Action Workflows [Click Here](https://github.com/amirisback/automated-build-android-app-with-github-action/blob/master/.github/workflows/generate-apk-aab-debug-release.yml)
 
