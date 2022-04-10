@@ -1,10 +1,14 @@
-name: Generate APK / AAB Debug And Release
+name: Android CI
 
 on:
   # Triggers the workflow on push or pull request events but only for default and protected branches
   push:
     branches: [ master ]
   pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+    # The workflow will be dispatched to the default queue
     branches: [ master ]
 
 jobs:
@@ -45,8 +49,22 @@ jobs:
 
       # Upload Artifact Build
       # Noted For Output [module-name]/build/outputs/
-      - name: Upload debug build APK
+      - name: Upload APK Debug
         uses: actions/upload-artifact@v2
         with:
-          name: App bundle(s) and APK(s) generated
-          path: app/build/outputs/
+          name: APK(s) debug generated
+          path: app/build/outputs/apk/debug/
+
+      # Noted For Output [module-name]/build/outputs/
+      - name: Upload APK Release
+        uses: actions/upload-artifact@v2
+        with:
+          name: APK(s) release generated
+          path: app/build/outputs/apk/release/
+
+      # Noted For Output [module-name]/build/outputs/
+      - name: Upload AAB (App Bundle) Release
+        uses: actions/upload-artifact@v2
+        with:
+          name: App bundle(s) release generated
+          path: app/build/outputs/bundle/release/
