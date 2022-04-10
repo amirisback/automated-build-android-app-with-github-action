@@ -1,5 +1,12 @@
 name: Android CI
 
+env:
+  # The name of the main module repository
+  MAIN_APP_MODULE: app
+
+  # The name of the Play Store
+  PLAY_STORE_NAME: Frogobox
+
 on:
   # Triggers the workflow on push or pull request events but only for default and protected branches
   push:
@@ -43,28 +50,28 @@ jobs:
         run: ./gradlew assemble
 
       # Create Bundle AAB Release
-      # Noted for main module build [module-name]:bundleRelease
+      # Noted for main module build [MAIN-APP-MODULE]:bundleRelease
       - name: Build app bundle release (AAB)
-        run: ./gradlew app:bundleRelease
+        run: ./gradlew ${{ env.MAIN_APP_MODULE }}:bundleRelease
 
       # Upload Artifact Build
-      # Noted For Output [module-name]/build/outputs/
-      - name: Upload APK Debug
+      # Noted For Output [MAIN-APP-MODULE]/build/outputs/
+      - name: Upload APK Debug ${{ env.PLAY_STORE_NAME }}
         uses: actions/upload-artifact@v2
         with:
           name: APK(s) debug generated
-          path: app/build/outputs/apk/debug/
+          path: ${{ env.MAIN_APP_MODULE }}/build/outputs/apk/debug/
 
-      # Noted For Output [module-name]/build/outputs/
-      - name: Upload APK Release
+      # Noted For Output [MAIN-APP-MODULE]/build/outputs/
+      - name: Upload APK Release ${{ env.PLAY_STORE_NAME }}
         uses: actions/upload-artifact@v2
         with:
           name: APK(s) release generated
-          path: app/build/outputs/apk/release/
+          path: ${{ env.MAIN_APP_MODULE }}/build/outputs/apk/release/
 
-      # Noted For Output [module-name]/build/outputs/
-      - name: Upload AAB (App Bundle) Release
+      # Noted For Output [MAIN-APP-MODULE]/build/outputs/
+      - name: Upload AAB (App Bundle) Release ${{ env.PLAY_STORE_NAME }}
         uses: actions/upload-artifact@v2
         with:
           name: App bundle(s) release generated
-          path: app/build/outputs/bundle/release/
+          path: ${{ env.MAIN_APP_MODULE }}/build/outputs/bundle/release/
