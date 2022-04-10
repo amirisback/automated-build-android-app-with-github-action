@@ -19,7 +19,7 @@
 ## Version Release
 This Is Latest Release
 
-    $version_release = 2.0.0
+    $version_release = 2.0.1
 
 What's New??
 
@@ -69,6 +69,14 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
+      # Set Current Date As Env Variable
+      - name: Set current date as env variable
+        run: echo "date_today=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+
+      # Set Repository Name As Env Variable
+      - name: Set repository name as env variable
+        run: echo "repository_name=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')" >> $GITHUB_ENV
+
       - name: Set Up JDK
         uses: actions/setup-java@v1
         with:
@@ -77,46 +85,47 @@ jobs:
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
 
-      - name: Run tests
+      # Run Tests Build
+      - name: Run gradle tests
         run: ./gradlew test
 
       # Run Build Project
-      - name: Build project
+      - name: Build gradle project
         run: ./gradlew build
 
       # Create APK Debug
-      - name: Build apk debug project (APK) Module >> ${{ env.main_project_module }}
+      - name: Build apk debug project (APK) - ${{ env.main_project_module }} module
         run: ./gradlew assembleDebug
 
       # Create APK Release
-      - name: Build apk release project (APK) Module >> ${{ env.main_project_module }}
+      - name: Build apk release project (APK) - ${{ env.main_project_module }} module
         run: ./gradlew assemble
 
       # Create Bundle AAB Release
       # Noted for main module build [main_project_module]:bundleRelease
-      - name: Build app bundle release (AAB) Module >> ${{ env.main_project_module }}
+      - name: Build app bundle release (AAB) - ${{ env.main_project_module }} module
         run: ./gradlew ${{ env.main_project_module }}:bundleRelease
 
       # Upload Artifact Build
       # Noted For Output [main_project_module]/build/outputs/apk/debug/
-      - name: Upload APK Debug ${{ env.playstore_name }}
+      - name: Upload APK Debug - ${{ env.repository_name }}
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ github.repository }} | APK(s) debug generated ${{ env.playstore_name }}
+          name: ${{ env.date_today }} - ${{ env.playstore_name }} - ${{ env.repository_name }} - APK(s) debug generated
           path: ${{ env.main_project_module }}/build/outputs/apk/debug/
 
       # Noted For Output [main_project_module]/build/outputs/apk/release/
-      - name: Upload APK Release ${{ env.playstore_name }}
+      - name: Upload APK Release - ${{ env.repository_name }}
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ github.repository }} | APK(s) release generated ${{ env.playstore_name }}
+          name: ${{ env.date_today }} - ${{ env.playstore_name }} - ${{ env.repository_name }} - APK(s) release generated
           path: ${{ env.main_project_module }}/build/outputs/apk/release/
 
       # Noted For Output [main_project_module]/build/outputs/bundle/release/
-      - name: Upload AAB (App Bundle) Release ${{ env.playstore_name }}
+      - name: Upload AAB (App Bundle) Release - ${{ env.repository_name }}
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ github.repository }} | App bundle(s) release generated ${{ env.playstore_name }}
+          name: ${{ env.date_today }} - ${{ env.playstore_name }} - ${{ env.repository_name }} - App bundle(s) AAB release generated
           path: ${{ env.main_project_module }}/build/outputs/bundle/release/
 ```
 
