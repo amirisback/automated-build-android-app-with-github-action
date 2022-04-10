@@ -1,3 +1,8 @@
+<p align="center">
+<!-- Walk Together -->
+<img width="180px" height="180px" src="https://raw.githubusercontent.com/amirisback/amirisback/master/docs/image/bear-panda/couple/bear-panda-walk-together.gif">
+</p>
+
 ## Automated Build Android With Using Github Action
 [![Generate APK / AAB Debug And Release](https://github.com/amirisback/automated-build-android-app-with-github-action/actions/workflows/generate-apk-aab-debug-release.yml/badge.svg)](https://github.com/amirisback/automated-build-android-app-with-github-action/actions/workflows/generate-apk-aab-debug-release.yml)
 [![Scan with Detekt](https://github.com/amirisback/automated-build-android-app-with-github-action/actions/workflows/detekt-analysis.yml/badge.svg)](https://github.com/amirisback/automated-build-android-app-with-github-action/actions/workflows/detekt-analysis.yml)
@@ -12,11 +17,6 @@
 - [How to Use GitHub Actions to Automate Android App Development](https://www.freecodecamp.org/news/use-github-actions-to-automate-android-development/)
 
 ## How To Use Workflows
-
-<p align="center">
-<img width="100px" height="100px" src="https://raw.githubusercontent.com/amirisback/amirisback/master/docs/image/bear-panda/panda-annoy.gif">
-<img width="100px" height="100px" src="https://raw.githubusercontent.com/amirisback/amirisback/master/docs/image/bear-panda/bear-annoy.gif">
-</p>
 
 ### Step 1. Upload Your Project on Github
 - Project must be android studio project using gradle
