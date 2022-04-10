@@ -7,9 +7,6 @@ env:
   # The name of the Play Store
   playstore_name: Frogobox ID
 
-  # Get Date Today
-  date_today: $(date +'%d-%m-%Y')
-
 on:
   # Triggers the workflow on push or pull request events but only for default and protected branches
   push:
@@ -29,6 +26,12 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
+      - name: Set current date as env variable
+        run: echo "date_today=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+
+      - name: Set Repository Name
+        run: echo "repository_name=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')" >> $GITHUB_ENV
+      
       - name: Set Up JDK
         uses: actions/setup-java@v1
         with:
@@ -62,19 +65,19 @@ jobs:
       - name: Upload APK Debug ${{ env.playstore_name }}
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ github.repository }} - APK(s) debug generated ${{ env.playstore_name }} - ${{ env.date_today }}
+          name: ${{ env.repository_name }} - APK(s) debug generated ${{ env.playstore_name }} - ${{ env.date_today }}
           path: ${{ env.main_project_module }}/build/outputs/apk/debug/
 
       # Noted For Output [main_project_module]/build/outputs/apk/release/
       - name: Upload APK Release ${{ env.playstore_name }}
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ github.repository }} - APK(s) release generated ${{ env.playstore_name }} - ${{ env.date_today }}
+          name: ${{ env.repository_name }} - APK(s) release generated ${{ env.playstore_name }} - ${{ env.date_today }}
           path: ${{ env.main_project_module }}/build/outputs/apk/release/
 
       # Noted For Output [main_project_module]/build/outputs/bundle/release/
       - name: Upload AAB (App Bundle) Release ${{ env.playstore_name }}
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ github.repository }} - App bundle(s) release generated ${{ env.playstore_name }} - ${{ env.date_today }}
+          name: ${{ env.repository_name }} - App bundle(s) release generated ${{ env.playstore_name }} - ${{ env.date_today }}
           path: ${{ env.main_project_module }}/build/outputs/bundle/release/
