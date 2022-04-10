@@ -57,9 +57,8 @@ on:
   pull_request:
     branches: [ master ]
 
+  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-    # The workflow will be dispatched to the default queue
-    branches: [ master ]
 
 jobs:
   build:
