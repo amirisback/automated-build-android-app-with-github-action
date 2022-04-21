@@ -1,6 +1,6 @@
 <p align="center">
-<!-- Walk Together -->
-<img width="180px" height="180px" src="https://raw.githubusercontent.com/amirisback/amirisback/master/docs/image/bear-panda/couple/bear-panda-walk-together.gif">
+<!-- Run -->
+<img width="600px" height="is 300px" src="https://raw.githubusercontent.com/amirisback/amirisback/master/docs/image/bear-panda/couple/bear-panda-run.gif">
 </p>
 
 ## Automated Build Android With Using Github Action
