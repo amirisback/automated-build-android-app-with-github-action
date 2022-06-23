@@ -4,7 +4,9 @@
 </p>
 
 ## Automated Build Android With Using Github Action
-[![Android CI](https://github.com/amirisback/automated-build-android-app-with-github-action/actions/workflows/generate-apk-aab-debug-release.yml/badge.svg)](https://github.com/amirisback/automated-build-android-app-with-github-action/actions/workflows/generate-apk-aab-debug-release.yml)
+[![Android CI](https://github.com/amirisback/automated-build-android-app-with-github-action/actions/workflows/android-ci.yml/badge.svg)](https://github.com/amirisback/automated-build-android-app-with-github-action/actions/workflows/android-ci.yml)
+[![Download Generated APK AAB](https://github.com/amirisback/automated-build-android-app-with-github-action/actions/workflows/android-ci-generate-apk-aab-download.yml/badge.svg)](https://github.com/amirisback/automated-build-android-app-with-github-action/actions/workflows/android-ci-generate-apk-aab-download.yml)
+[![Upload Generated APK AAB](https://github.com/amirisback/automated-build-android-app-with-github-action/actions/workflows/android-ci-generate-apk-aab-upload.yml/badge.svg)](https://github.com/amirisback/automated-build-android-app-with-github-action/actions/workflows/android-ci-generate-apk-aab-upload.yml)
 [![Scan with Detekt](https://github.com/amirisback/automated-build-android-app-with-github-action/actions/workflows/detekt-analysis.yml/badge.svg)](https://github.com/amirisback/automated-build-android-app-with-github-action/actions/workflows/detekt-analysis.yml)
 [![pages-build-deployment](https://github.com/amirisback/automated-build-android-app-with-github-action/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/amirisback/automated-build-android-app-with-github-action/actions/workflows/pages/pages-build-deployment)
 - Available on Google Dev Library [Click Here](https://devlibrary.withgoogle.com/products/android/repos/amirisback-automated-build-android-app-with-github-action)
@@ -32,6 +34,10 @@ What's New??
 ## Article Sources
 - [How To Securely Build and Sign Your Android App With GitHub Actions](https://proandroiddev.com/how-to-securely-build-and-sign-your-android-app-with-github-actions-ad5323452ce)
 - [How to Use GitHub Actions to Automate Android App Development](https://www.freecodecamp.org/news/use-github-actions-to-automate-android-development/)
+
+## Guide Sources (Github Action)
+- [Download Artifact From Github Action](https://github.com/actions/download-artifact)
+- [Upload Artifact From Github Action](https://github.com/actions/upload-artifact)
 
 ## How To Use Workflows
 
