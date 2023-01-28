@@ -24,7 +24,7 @@
 ## Version Release
 This Is Latest Release
 
-    $version_release = 2.1.0
+    $version_release = 2.1.1
 
 What's New??
 
@@ -38,6 +38,7 @@ What's New??
 ## Guide Sources (Github Action)
 - [Download Artifact From Github Action](https://github.com/actions/download-artifact)
 - [Upload Artifact From Github Action](https://github.com/actions/upload-artifact)
+- [Remove Artifact](https://github.com/c-hive/gha-remove-artifacts)
 
 ## How To Use Workflows
 
@@ -156,6 +157,33 @@ jobs:
 
 ### App bundle(s) release generated
 ![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/ss-bundle.png?raw=true)
+
+### Clean Up Artifact
+```yml
+name: Generated APK AAB (Clean)
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+  schedule:
+    # Every day at 1am
+    - cron: '0 1 * * *'
+
+jobs:
+  remove-old-artifacts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Clean all artifacts
+        uses: c-hive/gha-remove-artifacts@v1
+        with:
+          age: '60 seconds' # '<number> <unit>', e.g. 5 days, 2 years, 90 seconds, parsed by Moment.js
+          # Optional inputs
+          # skip-tags: true
+          # skip-recent: 5
+```
 
 ## Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
