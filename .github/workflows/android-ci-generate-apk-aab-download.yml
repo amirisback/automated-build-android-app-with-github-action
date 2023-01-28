@@ -1,4 +1,4 @@
-name: Download Generated APK AAB
+name: Generated APK AAB (Download)
 
 env:
   # The name of the main module repository

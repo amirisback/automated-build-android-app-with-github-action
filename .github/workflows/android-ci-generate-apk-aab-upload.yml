@@ -1,4 +1,4 @@
-name: Upload Generated APK AAB
+name: Generated APK AAB (Upload)
 
 env:
   # The name of the main module repository
