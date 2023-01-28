@@ -9,6 +9,7 @@
 [![Upload Generated APK AAB](https://github.com/amirisback/automated-build-android-app-with-github-action/actions/workflows/android-ci-generate-apk-aab-upload.yml/badge.svg)](https://github.com/amirisback/automated-build-android-app-with-github-action/actions/workflows/android-ci-generate-apk-aab-upload.yml)
 [![Scan with Detekt](https://github.com/amirisback/automated-build-android-app-with-github-action/actions/workflows/detekt-analysis.yml/badge.svg)](https://github.com/amirisback/automated-build-android-app-with-github-action/actions/workflows/detekt-analysis.yml)
 [![pages-build-deployment](https://github.com/amirisback/automated-build-android-app-with-github-action/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/amirisback/automated-build-android-app-with-github-action/actions/workflows/pages/pages-build-deployment)
+[![Generated APK AAB (Clean)](https://github.com/amirisback/automated-build-android-app-with-github-action/actions/workflows/android-ci-generate-apk-aab-clean.yml/badge.svg)](https://github.com/amirisback/automated-build-android-app-with-github-action/actions/workflows/android-ci-generate-apk-aab-clean.yml)
 - Available on Google Dev Library [Click Here](https://devlibrary.withgoogle.com/products/android/repos/amirisback-automated-build-android-app-with-github-action)
 - Project Github Action Script YAML
 - Using Github Workflows
