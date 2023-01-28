@@ -1,4 +1,4 @@
-name: Remove Generated APK AAB
+name: Generated APK AAB (Clean)
 
 on:
   # Allows you to run this workflow manually from the Actions tab
@@ -14,10 +14,10 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      - name: Remove old artifacts
+      - name: Clean all artifacts
         uses: c-hive/gha-remove-artifacts@v1
         with:
-          age: '90 seconds' # '<number> <unit>', e.g. 5 days, 2 years, 90 seconds, parsed by Moment.js
+          age: '60 seconds' # '<number> <unit>', e.g. 5 days, 2 years, 90 seconds, parsed by Moment.js
           # Optional inputs
           # skip-tags: true
           # skip-recent: 5
