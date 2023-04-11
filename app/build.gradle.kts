@@ -25,38 +25,38 @@ android {
 
     }
 
-    signingConfigs {
-        create("release") {
-            // You need to specify either an absolute path or include the
-            // keystore file in the same directory as the build.gradle file.
-            // [PROJECT FOLDER NAME/app/[COPY YOUT KEY STORE] .jks in here
-            storeFile = file(ProjectSetting.KEY_PATH)
-            storePassword = ProjectSetting.KEY_STORE_PASSWORD
-            keyAlias = ProjectSetting.KEY_ALIAS
-            keyPassword = ProjectSetting.KEY_ALIAS_PASSWORD
-        }
+signingConfigs {
+    create("release") {
+        // You need to specify either an absolute path or include the
+        // keystore file in the same directory as the build.gradle file.
+        // [PROJECT FOLDER NAME/app/[COPY YOUT KEY STORE] .jks in here
+        storeFile = file(ProjectSetting.KEY_PATH)
+        storePassword = ProjectSetting.KEY_STORE_PASSWORD
+        keyAlias = ProjectSetting.KEY_ALIAS
+        keyPassword = ProjectSetting.KEY_ALIAS_PASSWORD
     }
+}
 
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
+buildTypes {
+    getByName("release") {
+        isMinifyEnabled = false
 
-            // Disable Debug Mode
-            isDebuggable = false
-            isJniDebuggable = false
-            isRenderscriptDebuggable = false
-            isPseudoLocalesEnabled = false
+        // Disable Debug Mode
+        isDebuggable = false
+        isJniDebuggable = false
+        isRenderscriptDebuggable = false
+        isPseudoLocalesEnabled = false
 
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+        proguardFiles(
+            getDefaultProguardFile("proguard-android-optimize.txt"),
+            "proguard-rules.pro"
+        )
 
-            // Generated Signed APK / AAB
-            signingConfig = signingConfigs.getByName("release")
+        // Generated Signed APK / AAB
+        signingConfig = signingConfigs.getByName("release")
 
-        }
     }
+}
 
     buildFeatures {
         viewBinding = true
@@ -69,17 +69,17 @@ android {
 
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
         kotlinOptions {
-            jvmTarget = JavaVersion.VERSION_11.toString()
+            jvmTarget = "11"
         }
     }
 }
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.9.0")
-    implementation("androidx.appcompat:appcompat:1.6.0")
+    implementation("androidx.core:core-ktx:1.10.0")
+    implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("androidx.work:work-runtime-ktx:2.7.1")
+    implementation("androidx.work:work-runtime-ktx:2.8.1")
     implementation("com.google.android.material:material:1.8.0")
 
     testImplementation("junit:junit:4.13.2")
