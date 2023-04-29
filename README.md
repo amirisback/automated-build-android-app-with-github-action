@@ -26,12 +26,15 @@
 ## Version Release
 This Is Latest Release
 
-    $version_release = 2.1.1
+    $version_release = 2.2.0
 
 What's New??
 
     * Update Action Script *
     * Update Android Studio Latest Version *
+    * Update Gradle Latest Version *
+    * Update Kotlin Latest Version *
+    * Update Java Version From 11 to 17 *
 
 ## Article Sources
 - [How To Securely Build and Sign Your Android App With GitHub Actions](https://proandroiddev.com/how-to-securely-build-and-sign-your-android-app-with-github-actions-ad5323452ce)
