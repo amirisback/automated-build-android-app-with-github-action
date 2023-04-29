@@ -1,4 +1,4 @@
-/*
+/**
  * Created by faisalamir on 19/09/21
  * FrogoRecyclerView
  * -----------------------------------------
@@ -42,12 +42,13 @@ object ProjectSetting {
     const val PROJECT_TARGET_SDK = PROJECT_COMPILE_SDK
 
     const val PROJECT_APP_ID = "$APP_DOMAIN.$APP_PLAY_CONSOLE.$APP_NAME"
+    const val PROJECT_NAME_SPACE = "com.frogobox.githubaction"
     const val PROJECT_VERSION_CODE = (VERSION_MAJOR * 100) + (VERSION_MINOR * 10) + (VERSION_PATCH * 1)
     const val PROJECT_VERSION_NAME = "$VERSION_MAJOR.$VERSION_MINOR.$VERSION_PATCH"
 
     // Declaration apk / aab name
-    val NAME_APK = NAME_APP.toLowerCase().replace(" ", "-")
-    val NAME_DB = NAME_APP.toLowerCase().replace(" ", "_")
+    val NAME_APK = NAME_APP.lowercase().replace(" ", "-")
+    val NAME_DB = NAME_APP.lowercase().replace(" ", "_")
     val DB = "\"$NAME_DB.db\""
 
 }
