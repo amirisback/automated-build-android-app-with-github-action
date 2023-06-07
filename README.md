@@ -26,7 +26,7 @@
 ## Version Release
 This Is Latest Release
 
-    $version_release = 2.2.0
+    $version_release = 2.2.1
 
 What's New??
 
@@ -35,6 +35,7 @@ What's New??
     * Update Gradle Latest Version *
     * Update Kotlin Latest Version *
     * Update Java Version From 11 to 17 *
+    * Update Java Action version to 3 *
 
 ## Article Sources
 - [How To Securely Build and Sign Your Android App With GitHub Actions](https://proandroiddev.com/how-to-securely-build-and-sign-your-android-app-with-github-actions-ad5323452ce)
@@ -94,7 +95,9 @@ jobs:
       - name: Set Up JDK
         uses: actions/setup-java@v3
         with:
-          java-version: 17
+          distribution: 'zulu' # See 'Supported distributions' for available options
+          java-version: '17'
+          cache: 'gradle'
 
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
