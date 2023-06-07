@@ -22,9 +22,9 @@ object ProjectSetting {
     const val APP_PLAY_CONSOLE = "frogobox"
     const val APP_NAME = "githubaction"
 
-    const val VERSION_MAJOR = 1
-    const val VERSION_MINOR = 0
-    const val VERSION_PATCH = 0
+    const val VERSION_MAJOR = 2
+    const val VERSION_MINOR = 2
+    const val VERSION_PATCH = 1
 
     const val PROJECT_MIN_SDK = 21
     const val PROJECT_COMPILE_SDK = 33
