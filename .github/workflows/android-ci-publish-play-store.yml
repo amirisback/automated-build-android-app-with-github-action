@@ -20,17 +20,13 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [ 10.x, 12.x, 14.x, 16.x, 18.x ]
-
     steps:
       - uses: actions/checkout@v1
 
       - name: Set Up JDK
         uses: actions/setup-java@v3
         with:
-          java-version: 1.8
+          java-version: 17
 
       - name: Change wrapper permissions
         run: chmod +x ./gradlew

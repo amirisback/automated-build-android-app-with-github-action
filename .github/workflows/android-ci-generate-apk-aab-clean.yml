@@ -10,7 +10,9 @@ on:
 
 jobs:
   remove-old-artifacts:
+
     runs-on: ubuntu-latest
+
     timeout-minutes: 10
 
     steps:
