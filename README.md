@@ -40,6 +40,7 @@ What's New??
 ## Article Sources
 - [How To Securely Build and Sign Your Android App With GitHub Actions](https://proandroiddev.com/how-to-securely-build-and-sign-your-android-app-with-github-actions-ad5323452ce)
 - [How to Use GitHub Actions to Automate Android App Development](https://www.freecodecamp.org/news/use-github-actions-to-automate-android-development/)
+- [Update Java Checkout Version CI](https://github.com/actions/setup-java)
 
 ## Guide Sources (Github Action)
 - [Download Artifact From Github Action](https://github.com/actions/download-artifact)
