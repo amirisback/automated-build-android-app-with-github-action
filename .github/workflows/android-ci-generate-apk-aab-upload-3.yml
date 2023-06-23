@@ -8,7 +8,7 @@ env:
   playstore_name: Frogobox ID
 
   # Apk / Aab Name
-  artifact_name: github-action-automated(2.2.1)
+  artifact_name: github-action-automated
 
 on:
 
