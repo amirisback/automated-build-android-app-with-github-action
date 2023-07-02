@@ -16,6 +16,7 @@
 - Using Github Workflows
 - Automated Build AAB (release)
 - Automated Build APK (release and debug)
+- Have Bundle Tool
 - Download Artifact
 - Upload Artifact
 - Clear (Articfact naming)
@@ -26,7 +27,7 @@
 ## Version Release
 This Is Latest Release
 
-    $version_release = 2.2.1
+    $version_release = 2.2.2
 
 What's New??
 
@@ -36,6 +37,8 @@ What's New??
     * Update Kotlin Latest Version *
     * Update Java Version From 11 to 17 *
     * Update Java Action version to 3 *
+    * Update Android SDK Tools * 
+    * Add Bundletool.jar for workflow github action *
 
 ## Article Sources
 - [How To Securely Build and Sign Your Android App With GitHub Actions](https://proandroiddev.com/how-to-securely-build-and-sign-your-android-app-with-github-actions-ad5323452ce)
@@ -192,6 +195,126 @@ jobs:
           # Optional inputs
           # skip-tags: true
           # skip-recent: 5
+```
+
+### Using Bundle Tool
+
+#### Step 1. Prepare Bundle Tool
+- Check Bundletool on (.github/lib/bundletool.jar) [Download Latest](https://github.com/google/bundletool/releases)
+
+#### Step 2. Code Action in file [android-ci-generate-apk-aab-upload-3.yml](https://github.com/amirisback/automated-build-android-app-with-github-action/blob/master/.github/workflows/android-ci-generate-apk-aab-upload-3.yml)
+
+```yml
+name: Generated APK AAB 3 Bundle Tool (Upload - Create Artifact To Github Action)
+
+env:
+  # The name of the main module repository
+  main_project_module: app
+
+  # The name of the Play Store
+  playstore_name: Frogobox ID
+
+  # Apk / Aab Name
+  artifact_name: github-action-automated
+
+  # Keystore
+  ks_path: frogoboxdev.jks
+
+  # Keystore Password
+  ks_store_pass: cronoclez
+
+  # Keystore Alias
+  ks_alias: frogobox
+
+  # Keystore Alias Password
+  ks_alias_pass: xeonranger
+
+on:
+
+  push:
+    branches:
+      - 'release/**'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      # Set Current Date As Env Variable
+      - name: Set current date as env variable
+        run: echo "date_today=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+
+      # Set Repository Name As Env Variable
+      - name: Set repository name as env variable
+        run: echo "repository_name=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')" >> $GITHUB_ENV
+
+      - name: Set Up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu' # See 'Supported distributions' for available options
+          java-version: '17'
+          cache: 'gradle'
+
+      - name: Change wrapper permissions
+        run: chmod +x ./gradlew
+
+      # Run Tests Build
+      - name: Run gradle tests
+        run: ./gradlew test
+
+      # Run Build Project
+      - name: Build gradle project
+        run: ./gradlew build
+
+      # Create APK Debug
+      - name: Build apk debug project (APK) - ${{ env.main_project_module }} module
+        run: ./gradlew assembleDebug
+
+      # Create APK Release
+      - name: Build apk release project (APK) - ${{ env.main_project_module }} module
+        run: ./gradlew assemble
+
+      # Create Bundle AAB Release
+      # Noted for main module build [main_project_module]:bundleRelease
+      - name: Build app bundle release (AAB) - ${{ env.main_project_module }} module
+        run: ./gradlew ${{ env.main_project_module }}:bundleRelease
+
+      #
+      # - name: Build APK(s) Debug from bundle using bundletool
+      #   run: java -jar ".github/lib/bundletool.jar" build-apks --bundle=${{ env.main_project_module }}/build/outputs/bundle/debug/${{ env.artifact_name }}-debug.aab --output=${{ env.main_project_module }}/build/outputs/bundle/debug/${{ env.artifact_name }}-debug.apks --mode=universal
+
+      # Build APK From Bundle Using Bundletool
+      # Noted For Output [main_project_module]/build/outputs/bundle/release/
+      - name: Build APK(s) Release from bundle using bundletool (Path same with bundle output)
+        run: java -jar ".github/lib/bundletool.jar" build-apks --bundle=${{ env.main_project_module }}/build/outputs/bundle/release/${{ env.artifact_name }}-release.aab --output=${{ env.main_project_module }}/build/outputs/bundle/release/${{ env.artifact_name }}-release.apks --mode=universal --ks="app/${{ env.ks_path }}" --ks-pass=pass:${{ env.ks_store_pass }} --ks-key-alias=${{ env.ks_alias }} --key-pass=pass:${{ env.ks_alias_pass }}
+
+      # Upload Artifact Build
+      # Noted For Output [main_project_module]/build/outputs/apk/debug/
+      - name: Upload APK Debug - ${{ env.repository_name }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ env.date_today }} - ${{ env.playstore_name }} - ${{ env.repository_name }} - APK(s) debug generated
+          path: ${{ env.main_project_module }}/build/outputs/apk/debug/
+
+      # Noted For Output [main_project_module]/build/outputs/apk/release/
+      - name: Upload APK Release - ${{ env.repository_name }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ env.date_today }} - ${{ env.playstore_name }} - ${{ env.repository_name }} - APK(s) release generated
+          path: ${{ env.main_project_module }}/build/outputs/apk/release/
+
+      # Noted For Output [main_project_module]/build/outputs/bundle/release/
+      - name: Upload AAB (App Bundle) Release - ${{ env.repository_name }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ env.date_today }} - ${{ env.playstore_name }} - ${{ env.repository_name }} - App bundle(s) AAB release generated
+          path: ${{ env.main_project_module }}/build/outputs/bundle/release/
 ```
 
 ## Colaborator
