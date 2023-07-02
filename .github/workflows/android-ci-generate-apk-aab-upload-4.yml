@@ -79,7 +79,8 @@ jobs:
       #   run: java -jar ".github/lib/bundletool.jar" build-apks --bundle=${{ env.main_project_module }}/build/outputs/bundle/debug/${{ env.artifact_name }}-debug.aab --output=${{ env.main_project_module }}/build/outputs/bundle/debug/${{ env.artifact_name }}-debug.apks --mode=universal
 
       - name: Set Artifact from generated aab
-        run: files=${{ env.generated_name_aab }}/build/outputs/apk/debug/*
+        run: |
+             files=${{ env.generated_name_aab }}/build/outputs/apk/debug/*
              echo "${files[0]}" >> $GITHUB_ENV
 
       # Build APK From Bundle Using Bundletool
