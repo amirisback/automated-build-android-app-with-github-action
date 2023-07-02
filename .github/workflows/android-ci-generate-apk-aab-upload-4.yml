@@ -80,8 +80,9 @@ jobs:
 
       - name: Set Artifact from generated aab
         run: |
-             files=${{ env.generated_name_aab }}/build/outputs/apk/debug/*
-             echo "${files[0]}" >> $GITHUB_ENV
+          cd ${{ env.main_project_module }}/build/outputs/bundle/release/
+          files=(*)
+          echo "generated_name_aab=${files[0]}" >> $GITHUB_ENV
 
       # Build APK From Bundle Using Bundletool
       # Noted For Output [main_project_module]/build/outputs/bundle/release/
