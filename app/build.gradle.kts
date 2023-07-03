@@ -21,7 +21,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         // Naming APK // AAB
-        setProperty("archivesBaseName", "${ProjectSetting.NAME_APK}(${versionName})")
+        setProperty("archivesBaseName", "${ProjectSetting.NAME_APK}[${versionName}]")
 
     }
 
