@@ -205,7 +205,7 @@ jobs:
 #### Step 2. Code Action in file [android-ci-generate-apk-aab-upload-3.yml](https://github.com/amirisback/automated-build-android-app-with-github-action/blob/master/.github/workflows/android-ci-generate-apk-aab-upload-3.yml)
 
 ```yml
-name: Generated APK AAB 3 Bundle Tool (Upload - Create Artifact To Github Action)
+name: Generated APK AAB 2 Bundle Tool (Upload - Create Artifact To Github Action)
 
 env:
   # The name of the main module repository
@@ -214,10 +214,7 @@ env:
   # The name of the Play Store
   playstore_name: Frogobox ID
 
-  # Apk / Aab Name
-  artifact_name: github-action-automated
-
-  # Keystore
+  # Keystore Path
   ks_path: frogoboxdev.jks
 
   # Keystore Password
@@ -285,14 +282,25 @@ jobs:
       - name: Build app bundle release (AAB) - ${{ env.main_project_module }} module
         run: ./gradlew ${{ env.main_project_module }}:bundleRelease
 
-      #
       # - name: Build APK(s) Debug from bundle using bundletool
       #   run: java -jar ".github/lib/bundletool.jar" build-apks --bundle=${{ env.main_project_module }}/build/outputs/bundle/debug/${{ env.artifact_name }}-debug.aab --output=${{ env.main_project_module }}/build/outputs/bundle/debug/${{ env.artifact_name }}-debug.apks --mode=universal
+
+      - name: Set Env Artifact name from generated aab
+        run: |
+          cd ${{ env.main_project_module }}/build/outputs/bundle/release/
+          files=(*)
+          echo "generated_name_aab=${files[0]%.*}" >> $GITHUB_ENV
 
       # Build APK From Bundle Using Bundletool
       # Noted For Output [main_project_module]/build/outputs/bundle/release/
       - name: Build APK(s) Release from bundle using bundletool (Path same with bundle output)
-        run: java -jar ".github/lib/bundletool.jar" build-apks --bundle=${{ env.main_project_module }}/build/outputs/bundle/release/${{ env.artifact_name }}-release.aab --output=${{ env.main_project_module }}/build/outputs/bundle/release/${{ env.artifact_name }}-release.apks --mode=universal --ks="app/${{ env.ks_path }}" --ks-pass=pass:${{ env.ks_store_pass }} --ks-key-alias=${{ env.ks_alias }} --key-pass=pass:${{ env.ks_alias_pass }}
+        run: java -jar ".github/lib/bundletool.jar" build-apks --bundle=${{ env.main_project_module }}/build/outputs/bundle/release/${{ env.generated_name_aab }}.aab --output=${{ env.main_project_module }}/build/outputs/bundle/release/${{ env.generated_name_aab }}.apks --mode=universal --ks="app/${{ env.ks_path }}" --ks-pass=pass:${{ env.ks_store_pass }} --ks-key-alias=${{ env.ks_alias }} --key-pass=pass:${{ env.ks_alias_pass }}
+
+      # Duplicate APK(s) Release to zip file and extract
+      - name: Duplicate APK(s) Release to zip file and extract
+        run: |
+          cd ${{ env.main_project_module }}/build/outputs/bundle/release/
+          unzip -p ${{ env.generated_name_aab }}.apks universal.apk > ${{ env.generated_name_aab }}.apk
 
       # Upload Artifact Build
       # Noted For Output [main_project_module]/build/outputs/apk/debug/
