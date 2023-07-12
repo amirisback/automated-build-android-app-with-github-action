@@ -325,6 +325,18 @@ jobs:
           path: ${{ env.main_project_module }}/build/outputs/bundle/release/
 ```
 
+### Step 3. Running Action
+![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/bundletool/ss_bundle_1.png?raw=true)
+
+### Step 4. Waiting Running Action
+![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/bundletool/ss_bundle_2.png?raw=true)
+![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/bundletool/ss_bundle_3.png?raw=true)
+
+
+### Step 5. Download Artifact and Extract it
+![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/bundletool/ss_bundle_4.png?raw=true)
+![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/bundletool/ss_bundle_5.png?raw=true)
+
 ## Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
 
