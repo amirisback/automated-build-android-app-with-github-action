@@ -329,12 +329,16 @@ jobs:
 ![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/bundletool/ss_bundle_1.png?raw=true)
 
 ### Step 4. Waiting Running Action
+- Waiting for running action
 ![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/bundletool/ss_bundle_2.png?raw=true)
+- Check periodically, afraid there is an error
 ![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/bundletool/ss_bundle_3.png?raw=true)
 
 
 ### Step 5. Download Artifact and Extract it
+- Download Artifact (AAB Artifact)
 ![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/bundletool/ss_bundle_4.png?raw=true)
+- Extract it !!! Done
 ![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/bundletool/ss_bundle_5.png?raw=true)
 
 ## Colaborator
