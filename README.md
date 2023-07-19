@@ -61,7 +61,7 @@ What's New??
 
 ### Step 3. Create Code
 ```yml
-name: Android CI
+name: Generated APK AAB (Upload - Create Artifact To Github Action)
 
 env:
   # The name of the main module repository
@@ -71,11 +71,10 @@ env:
   playstore_name: Frogobox ID
 
 on:
-  # Triggers the workflow on push or pull request events but only for default and protected branches
+
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches:
+      - 'release/**'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -86,7 +85,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
 
       # Set Current Date As Env Variable
       - name: Set current date as env variable
