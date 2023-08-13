@@ -1,25 +1,25 @@
-name: Generated APK AAB (Clean - Clean chace and artifacts))
+名字: 名称:生成的APK AAB(干净-干净的查斯和文物))
 
-on:
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+在:
+#允许您从"操作"选项卡手动运行此工作流#允许您从“操作”选项卡手动运行此工作流
+工作流_调度:
 
-  schedule:
-    # Every day at 1am
-    - cron: '0 1 * * *'
+日程安排:
+#每天凌晨一点#每天凌晨1点
+    - 时间单位: '0 1 * * *'
 
-jobs:
-  remove-old-artifacts:
+工作:
+移除旧物件:
 
-    runs-on: ubuntu-latest
+连续运行: 运行:Ubuntu-最新版
 
-    timeout-minutes: 10
+超时-分钟: 10
 
-    steps:
-      - name: Clean all artifacts
-        uses: c-hive/gha-remove-artifacts@v1
-        with:
-          age: '60 seconds' # '<number> <unit>', e.g. 5 days, 2 years, 90 seconds, parsed by Moment.js
-          # Optional inputs
-          # skip-tags: true
-          # skip-recent: 5
+步伐:
+      - 名字: -名称:清洁所有工件
+使用: 用途:c-hive/gha-remove-artifacts@v1
+随着:
+年龄: ' 60秒'年龄:' 60秒' # ' <数字> <单位>'，例如5天、2年、90秒，由Moment.js解析# '<number> <unit>', e.g. 5 days, 2 years, 90 seconds, parsed by Moment.js
+#可选输入
+          #跳过标签:真
+          #跳过最近:5
