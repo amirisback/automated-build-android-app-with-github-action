@@ -347,7 +347,7 @@ jobs:
   ![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/ss-configuration-01.png?raw=true)
 
 ### Step 1: Create Folder .run on Root Project Directory
-![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/ss-configuration-01.png?raw=true)
+![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/ss-configuration-02.png?raw=true)
 
 ### Step 2: Create File [name-config].run.xml
 ```xml
