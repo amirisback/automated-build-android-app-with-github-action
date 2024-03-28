@@ -26,8 +26,8 @@ object ProjectSetting {
     const val VERSION_MINOR = 2
     const val VERSION_PATCH = 3
 
-    const val PROJECT_MIN_SDK = 21
-    const val PROJECT_COMPILE_SDK = 33
+    const val PROJECT_MIN_SDK = 24
+    const val PROJECT_COMPILE_SDK = 34
 
     // Setup Publish Setting
     const val KEY_PATH = "frogoboxdev.jks"
