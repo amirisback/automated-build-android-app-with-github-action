@@ -22,6 +22,7 @@
 - Clear (Articfact naming)
 - Sample Naming : ${date_today} - ${repository_name} - ${playstore_name} - APK(s) release generated
 - Private Repository Tested (Passed Build App bundle(s) and APK generated successfully)
+- Local Run With .run configuration in Local Machine
 - Full Code For Github Action Workflows [Click Here](https://github.com/amirisback/automated-build-android-app-with-github-action/blob/master/.github/workflows/generate-apk-aab-debug-release.yml)
 
 ## Version Release
@@ -39,6 +40,7 @@ What's New??
     * Update Java Action version to 3 *
     * Update Android SDK Tools * 
     * Add Bundletool.jar for workflow github action *
+    * Add .run configuration *
 
 ## Article Sources
 - [How To Securely Build and Sign Your Android App With GitHub Actions](https://proandroiddev.com/how-to-securely-build-and-sign-your-android-app-with-github-actions-ad5323452ce)
@@ -339,6 +341,76 @@ jobs:
 ![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/bundletool/ss_bundle_4.png?raw=true)
 #### Extract it !!! Done
 ![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/bundletool/ss_bundle_5.png?raw=true)
+
+## .run Configuration (Alternative if you don't have github action)
+- Run on your local machine
+  ![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/ss-apk-configuration-01.png?raw=true)
+
+### Step 1: Create Folder .run on Root Project Directory
+![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/ss-apk-configuration-01.png?raw=true)
+
+### Step 2: Create File [name-config].run.xml
+```xml
+<component name="ProjectRunConfigurationManager">
+  <!-- Add Name Configuration Here -->
+  <configuration default="false" name="${your-config-name}" type="GradleRunConfiguration" factoryName="Gradle">
+    <ExternalSystemSettings>
+      <option name="executionName" />
+      <option name="externalProjectPath" value="$PROJECT_DIR$" />
+      <option name="externalSystemIdString" value="GRADLE" />
+      <option name="scriptParameters" value="" />
+      <option name="taskDescriptions">
+        <list />
+      </option>
+      <option name="taskNames">
+        <list>
+          <!-- TODO : add your task here -->
+          <option value=":app:assembleDebug" />
+        </list>
+      </option>
+      <option name="vmOptions" />
+    </ExternalSystemSettings>
+    <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+    <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+    <DebugAllEnabled>false</DebugAllEnabled>
+    <RunAsTest>false</RunAsTest>
+    <method v="2" />
+  </configuration>
+</component>
+```
+- Note : if you confuse you can use this feature
+  ![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/ss-apk-configuration-03.png?raw=true)
+
+### Step 3: Your Configuration Will Appears on this Menu
+![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/ss-apk-configuration-04.png?raw=true)
+
+### Sample Configuration (signingreport)
+```xml
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="signingreport" type="GradleRunConfiguration" factoryName="Gradle">
+    <ExternalSystemSettings>
+      <option name="executionName" />
+      <option name="externalProjectPath" value="$PROJECT_DIR$" />
+      <option name="externalSystemIdString" value="GRADLE" />
+      <option name="scriptParameters" value="" />
+      <option name="taskDescriptions">
+        <list />
+      </option>
+      <option name="taskNames">
+        <list>
+          <option value="signingreport" />
+        </list>
+      </option>
+      <option name="vmOptions" />
+    </ExternalSystemSettings>
+    <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+    <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+    <DebugAllEnabled>false</DebugAllEnabled>
+    <RunAsTest>false</RunAsTest>
+    <method v="2" />
+  </configuration>
+</component>
+```
 
 ## Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
