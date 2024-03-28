@@ -344,10 +344,10 @@ jobs:
 
 ## .run Configuration (Alternative if you don't have github action)
 - Run on your local machine
-  ![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/ss-apk-configuration-01.png?raw=true)
+  ![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/ss-configuration-01.png?raw=true)
 
 ### Step 1: Create Folder .run on Root Project Directory
-![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/ss-apk-configuration-01.png?raw=true)
+![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/ss-configuration-01.png?raw=true)
 
 ### Step 2: Create File [name-config].run.xml
 ```xml
@@ -379,10 +379,10 @@ jobs:
 </component>
 ```
 - Note : if you confuse you can use this feature
-  ![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/ss-apk-configuration-03.png?raw=true)
+  ![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/ss-configuration-03.png?raw=true)
 
 ### Step 3: Your Configuration Will Appears on this Menu
-![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/ss-apk-configuration-04.png?raw=true)
+![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/ss-configuration-04.png?raw=true)
 
 ### Sample Configuration (signingreport)
 ```xml
