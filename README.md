@@ -52,6 +52,8 @@ What's New??
 - [Upload Artifact From Github Action](https://github.com/actions/upload-artifact)
 - [Remove Artifact](https://github.com/c-hive/gha-remove-artifacts)
 
+# Run Using Github Action
+
 ## How To Use Workflows
 
 ### Step 1. Upload Your Project on Github
@@ -342,6 +344,8 @@ jobs:
 #### Extract it !!! Done
 ![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/bundletool/ss_bundle_5.png?raw=true)
 
+# Run Using Gradle Configuration
+
 ## .run Configuration (Alternative if you don't have github action)
 - Run on your local machine
   ![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/ss-configuration-01.png?raw=true)
@@ -383,6 +387,9 @@ jobs:
 
 ### Step 3: Your Configuration Will Appears on this Menu
 ![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/ss-configuration-04.png?raw=true)
+
+### Step 4: Result run multiple task
+![ScreenShot](https://raw.githubusercontent.com/amirisback/automated-build-android-app-with-github-action/master/docs/image/ss-configuration-05.png?raw=true)
 
 ### Sample Configuration (signingreport)
 ```xml
