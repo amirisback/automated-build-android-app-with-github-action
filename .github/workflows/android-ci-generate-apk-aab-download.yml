@@ -61,7 +61,7 @@ jobs:
       # Download Artifact Build
       # Noted For Output [main_project_module]/build/outputs/apk/debug/
       - name: Download APK Debug - ${{ env.repository_name }}
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           path: ${{ env.main_project_module }}/build/outputs/apk/debug/
 
@@ -71,7 +71,7 @@ jobs:
 
       # Noted For Output [main_project_module]/build/outputs/apk/release/
       - name: Download APK Release - ${{ env.repository_name }}
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           path: ${{ env.main_project_module }}/build/outputs/apk/release/
 
@@ -81,7 +81,7 @@ jobs:
 
       # Noted For Output [main_project_module]/build/outputs/bundle/release/
       - name: Download AAB (App Bundle) Release - ${{ env.repository_name }}
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           path: ${{ env.main_project_module }}/build/outputs/bundle/release/
 
