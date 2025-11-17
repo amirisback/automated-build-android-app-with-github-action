@@ -28,7 +28,7 @@
 ## Version Release
 This Is Latest Release
 
-    $version_release = 2.2.5
+    $version_release = 2.2.6
 
 What's New??
 
