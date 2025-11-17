@@ -19,7 +19,7 @@
 - Have Bundle Tool
 - Download Artifact
 - Upload Artifact
-- Clear (Articfact naming)
+- Clear (Artifact naming)
 - Sample Naming : ${date_today} - ${repository_name} - ${playstore_name} - APK(s) release generated
 - Private Repository Tested (Passed Build App bundle(s) and APK generated successfully)
 - Local Run With .run configuration in Local Machine
@@ -28,21 +28,15 @@
 ## Version Release
 This Is Latest Release
 
-    $version_release = 2.2.5
+    $version_release = 2.2.6
 
 What's New??
 
-    * Update Target SDK 35 *
+    * Update Target SDK 36 *
     * Update Action Script *
     * Update Android Studio Latest Version *
     * Update Gradle Latest Version *
     * Update Kotlin Latest Version *
-    * Update Java Version From 11 to 17 *
-    * Update Java Action version to 3 *
-    * Update Android SDK Tools * 
-    * Add Bundletool.jar for workflow github action *
-    * Add .run configuration *
-    * Update To Libs.Version.Toml
 
 ## Article Sources
 - [How To Securely Build and Sign Your Android App With GitHub Actions](https://proandroiddev.com/how-to-securely-build-and-sign-your-android-app-with-github-actions-ad5323452ce)
