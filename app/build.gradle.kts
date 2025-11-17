@@ -1,6 +1,15 @@
+import java.text.SimpleDateFormat
+import java.util.Date
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+}
+
+base {
+    // Naming APK // AAB
+    val timestamp = SimpleDateFormat("dd-MM-yyyy_hh-mm").format(Date())
+    archivesName = "${ProjectSetting.NAME_APK}-[${ProjectSetting.PROJECT_VERSION_NAME}]-$timestamp"
 }
 
 android {
@@ -19,9 +28,6 @@ android {
         vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
-        // Naming APK // AAB
-        setProperty("archivesBaseName", "${ProjectSetting.NAME_APK}[${versionName}]")
 
     }
 

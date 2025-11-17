@@ -19,7 +19,7 @@
 - Have Bundle Tool
 - Download Artifact
 - Upload Artifact
-- Clear (Articfact naming)
+- Clear (Artifact naming)
 - Sample Naming : ${date_today} - ${repository_name} - ${playstore_name} - APK(s) release generated
 - Private Repository Tested (Passed Build App bundle(s) and APK generated successfully)
 - Local Run With .run configuration in Local Machine
