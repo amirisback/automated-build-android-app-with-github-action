@@ -32,17 +32,11 @@ This Is Latest Release
 
 What's New??
 
-    * Update Target SDK 35 *
+    * Update Target SDK 36 *
     * Update Action Script *
     * Update Android Studio Latest Version *
     * Update Gradle Latest Version *
     * Update Kotlin Latest Version *
-    * Update Java Version From 11 to 17 *
-    * Update Java Action version to 3 *
-    * Update Android SDK Tools * 
-    * Add Bundletool.jar for workflow github action *
-    * Add .run configuration *
-    * Update To Libs.Version.Toml
 
 ## Article Sources
 - [How To Securely Build and Sign Your Android App With GitHub Actions](https://proandroiddev.com/how-to-securely-build-and-sign-your-android-app-with-github-actions-ad5323452ce)
