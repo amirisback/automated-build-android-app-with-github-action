@@ -11,9 +11,9 @@
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 226,
-      "versionName": "2.2.6",
-      "outputFile": "github-action-automated-[2.2.6]-06-04-2026_11-33-release.apk"
+      "versionCode": 227,
+      "versionName": "2.2.7",
+      "outputFile": "github-action-automated-[2.2.7]-06-04-2026_11-37-release.apk"
     }
   ],
   "elementType": "File",
@@ -22,14 +22,14 @@
       "minApi": 28,
       "maxApi": 30,
       "baselineProfiles": [
-        "baselineProfiles/1/github-action-automated-[2.2.6]-06-04-2026_11-33-release.dm"
+        "baselineProfiles/1/github-action-automated-[2.2.7]-06-04-2026_11-37-release.dm"
       ]
     },
     {
       "minApi": 31,
       "maxApi": 2147483647,
       "baselineProfiles": [
-        "baselineProfiles/0/github-action-automated-[2.2.6]-06-04-2026_11-33-release.dm"
+        "baselineProfiles/0/github-action-automated-[2.2.7]-06-04-2026_11-37-release.dm"
       ]
     }
   ],
