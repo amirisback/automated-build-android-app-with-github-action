@@ -92,6 +92,10 @@ jobs:
       # Copy Build Outputs & Push to GitHub
       # ======================================================
 
+      # Delete build/outputs directory if it already exists
+      - name: Clean up build/outputs directory
+        run: rm -rf ${{ env.build_output_path }}
+
       # Create build/outputs directory if it doesn't exist
       - name: Create build/outputs directory
         run: mkdir -p ${{ env.build_output_path }}
