@@ -1,12 +1,8 @@
-name: Generated APK AAB (Clean - Clean chace and artifacts))
+name: Generated APK AAB (Clean - Clean cache and artifacts))
 
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
-  schedule:
-    # Every day at 1am
-    - cron: '0 1 * * *'
 
 jobs:
   remove-old-artifacts:
